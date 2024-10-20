@@ -1,5 +1,5 @@
-import {cart} from '../data/cart.js';
-
+import {cart , addToCart} from '../data/cart.js';
+import { products } from '../data/products.js';
 let productHtml=``;
 products.forEach((product)=>{
   const html= `<div class="product-container">
@@ -51,42 +51,32 @@ products.forEach((product)=>{
                   </button> 
               </div> `
    productHtml+=html;       
-})
+});
 
 document.querySelector('.js-product-grid').innerHTML=productHtml;
 
 
+function updateCartQuantity(){
+  let cartQuantity=0;
+  cart.forEach((item)=>{
+    cartQuantity+=item.quantity;
+ }) ;
+ document.querySelector('.js-cart-quantity').innerHTML=cartQuantity;
+
+  console.log(cart);
+   };
+ 
 
 document.querySelectorAll('.js-add-to-button')
         .forEach((addbutton)=>{
               addbutton.addEventListener('click',()=>{
              //   document.querySelector('added-to-cart').innerHTML='Added';
              const productID=addbutton.dataset.productId ;
-             let matchingItem;
-             cart.forEach((item)=>{
-                if(item.productId===productID){
-                  matchingItem=item;
-                }
-             });
-             if(matchingItem){
-              matchingItem.quantity+=1;
-             }
-             else{
-              cart.push({
-                productId:productID,
-                quantity:1
-               }) 
-             }
+             addToCart(productID);
+             updateCartQuantity();
              
-             let cartQuantity=0;
-             cart.forEach((item)=>{
-               cartQuantity+=item.quantity;
-            }) ;
-            document.querySelector('.js-cart-quantity').innerHTML=cartQuantity;
-           
-             console.log(cart);
-              });
-}); 
+         }); 
+});            
 
 //this below function is also same but it is correct for only one add to button . it does not select all buttons.
 /*document.querySelector('.js-add-to-button')
@@ -95,4 +85,4 @@ document.querySelectorAll('.js-add-to-button')
                  console.log('y');
               });  */
 
- 
+        
