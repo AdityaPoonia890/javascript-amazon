@@ -111,7 +111,9 @@ export function renderOrderSummary(){
 
                                 const container=document.querySelector(`.js-cart-item-container-${productID}`);
                                 container.remove();
-                              })
+
+                                renderPaymemtSummary();
+                              });
                         });
       /*const today=dayjs();
       const deliveryDate=today.add(7,'days');
