@@ -1,17 +1,17 @@
 class Cart{
     cartItems = undefined ;
-    loadStorageKey = undefined ;
+    #loadStorageKey = undefined ;
 
     constructor(loadStorageKey){
-        this.loadStorageKey=loadStorageKey;
+        this.#loadStorageKey=loadStorageKey;
        
         
-        this.loadFromStorage();
+        this.#loadFromStorage();
         
     }
     
-    loadFromStorage(){
-        this.cartItems= JSON.parse(localStorage.getItem(this.loadStorageKey))  ;   
+    #loadFromStorage(){
+        this.cartItems= JSON.parse(localStorage.getItem(this.#loadStorageKey))  ;   
                 
         if(!this.cartItems){
           this.cartItems = [{
@@ -29,7 +29,7 @@ class Cart{
     };
 
     saveToStorage(){
-        localStorage.setItem(loadStorageKey,JSON.stringify(this.cartItems));
+        localStorage.setItem(this.#loadStorageKey,JSON.stringify(this.cartItems));
      } ;
 
      addToCart(productID){
@@ -92,6 +92,8 @@ class Cart{
   
   const cart = new Cart('cart-oop');
   const businessCart = new Cart('cart-business');
+
+  cart.addToCart('58b4fc92-e98c-42aa-8c55-b6b79996769a');
 
  
    
