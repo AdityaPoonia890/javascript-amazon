@@ -70,7 +70,7 @@ export function loadProductsFetch(){
           
           return new Product(productDetails);
     });
-    console.log('load products');
+    
   });
   return promise;
 };
@@ -82,7 +82,7 @@ export function loadProductsFetch(){
 });*/
 
 
- export function loadProducts(fun){
+/* export function loadProducts(fun){
 
   const xhr = new XMLHttpRequest();
 
@@ -98,7 +98,7 @@ export function loadProductsFetch(){
     });
 
 
-    console.log('load products');
+    console.log('load products for home page');
     fun();
   });
 
@@ -107,7 +107,7 @@ export function loadProductsFetch(){
   
 
  
-}
+} */
 
 /*
 export const products = [

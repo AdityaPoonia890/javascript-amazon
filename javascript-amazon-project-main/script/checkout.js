@@ -2,10 +2,27 @@ import { renderOrderSummary } from "./checkout/orderSummary.js";
 import { renderPaymemtSummary } from "./checkout/paymentSummary.js" ;
 //import  '../data/cart-oop.js';
 //import '../data/cart-class.js';
-import { loadProducts , loadProductsFetch} from "../data/products.js";
+import {  loadProductsFetch} from "../data/products.js";
 import { loadCart } from "../data/cart.js";
 
-Promise.all([
+async function loadPage(){
+     await loadProductsFetch();
+     console.log('load products');
+     await loadCart();
+     console.log('loaded cart');
+     renderOrderSummary();
+     console.log('loaded order summary');
+     renderPaymemtSummary();
+     console.log('loaded payment summary');
+
+}
+loadPage();
+
+
+
+
+
+/*Promise.all([
     loadProductsFetch()  ,
 
     new Promise((resolve)=>{
@@ -16,7 +33,7 @@ Promise.all([
 ]).then(()=>{
     renderOrderSummary();
     renderPaymemtSummary();
-})
+})*/
 
 /*new Promise((resolve)=>{
     loadProducts(()=>{
