@@ -1,10 +1,10 @@
 import { currencyFormat } from "../script/utils/money.js";
 
-export function getProductById(productId){
-  let matchingProduct='';
+export function getProduct(productId){
+  let matchingProduct;
   products.forEach((product)=>{
-    if( productId===product.id){
-      matchingProduct=product;
+    if( productId === product.id){
+      matchingProduct = product;
     }
 
   });
