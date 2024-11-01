@@ -1,6 +1,17 @@
-import {  products,getProduct } from "./products.js";
+import {  products } from "./products.js";
 
 const order = JSON.parse(localStorage.getItem('orders')) || [];
+
+function getProducthere(productId){
+  let matchingProduct = '';
+  products.forEach((product)=>{
+    if( productId === product.id){
+      matchingProduct = product;
+    }
+
+  });
+  console.log( matchingProduct.image);
+};
 
 export function addOrder(orders){
     order.unshift(orders);
@@ -73,7 +84,7 @@ function renderOrderDetailsHtml(products){
 
             <div class="product-details">
               <div class="product-name">
-                ${getOrderName(product.productId)}
+                heylo
               </div>
               <div class="product-delivery-date">
                 Arriving on: ${product.estimatedDeliveryTime}
@@ -102,5 +113,6 @@ function renderOrderDetailsHtml(products){
 
 }
 renderOrderContainerSummary();
+getProducthere('e43638ce-6aa0-4b85-b27f-e1d07eb678c6');
 
 

@@ -1,14 +1,14 @@
 import { currencyFormat } from "../script/utils/money.js";
 
 export function getProduct(productId){
-  let matchingProduct;
+  let matchingProduct = '';
   products.forEach((product)=>{
     if( productId === product.id){
       matchingProduct = product;
     }
 
   });
-  return matchingProduct;
+  console.log( matchingProduct);
 };
 
 class Product{
